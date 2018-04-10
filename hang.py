@@ -21,7 +21,7 @@ def loadWords():
 
 def isWordGuessed(secretWord, lettersGuessed):
     secretLetters = []
-    
+
     for letter in secretWord:
         if letter in lettersGuessed:
             pass
@@ -103,7 +103,10 @@ def hangman(secretWord):
             print('Congratulations, you won!')
         else:
             print('Sorry, you ran out of guesses. The word was ', secretWord, '.')
-
+            cont = raw_input("Input 'yes' to continue tring.")
+            while(cont == 'yes'):
+                print("\n\n\nHEEEEEY, COMO ON!")
+                hangman(secretWord)
 
 secretWord = loadWords().lower()
 hangman(secretWord)
