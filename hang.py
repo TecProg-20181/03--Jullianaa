@@ -45,14 +45,17 @@ def getAvailableLetters():
 
     return available
 
-def hangman(secretWord):
-
-    guesses = 8
-    lettersGuessed = []
+def printWelcome(secretWord):
     print('Welcome to the game, Hangam!')
     print('I am thinking of a word that is', len(secretWord), ' letters long.')
     print('-------------')
 
+def hangman(secretWord):
+
+    guesses = 8
+    lettersGuessed = []
+    printWelcome(secretWord)
+    
     while  isWordGuessed(secretWord, lettersGuessed) == False and guesses >0:
         print('You have ', guesses, 'guesses left.')
 
