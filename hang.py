@@ -3,20 +3,26 @@ import string
 
 WORDLIST_FILENAME = "palavras.txt"
 
-def loadWords():
-    """
-    Depending on the size of the word list, this function may
-    take a while to finish.
-    """
-    print("Loading word list from file...")
-    # inFile: file
-    inFile = open(WORDLIST_FILENAME, 'r', 0)
-    # line: string
-    line = inFile.readline()
-    # wordlist: list of strings
-    wordlist = string.split(line)
-    print("  ", len(wordlist), "words loaded.")
-    return random.choice(wordlist)
+class Word():
+    def __init__(self):
+        self.infile = ""
+        self.line = ""
+        self.wordlist = ""
+
+    def loadwords(self):
+        """
+        Depending on the size of the word list, this function may
+        take a while to finish.
+        """
+        print "Loading word list from file..."
+        # inFile: file
+        self.infile = open(WORDLIST_FILENAME, 'r', 0)
+        # line: string
+        self.line = self.infile.readline()
+        # wordlist: list of strings
+        self.wordlist = string.split(self.line)
+        print "  ", len(self.wordlist), "words loaded."
+        return random.choice(self.wordlist)
 
 
 def isWordGuessed(secretWord, lettersGuessed):
@@ -111,5 +117,6 @@ def hangman(secretWord):
                 print("\n\n\nHEEEEEY, COMO ON!")
                 hangman(secretWord)
 
-secretWord = loadWords().lower()
+word =  Word()
+secretWord = word.loadwords().lower()
 hangman(secretWord)

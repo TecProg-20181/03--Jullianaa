@@ -25,3 +25,29 @@ Para executar o projeto, use o comando:
 ```
 python2 hang.py
 ```
+Usando virtualenv
+------
+
+Para contribuir no projeto trabalhe com virtualenv seguindo os comando a seguir: 
+
+```
+pip install virtualenv
+```
+```
+cd
+```
+```
+virtualenv nomeProjeto
+```
+```
+uma pasta nomeProjeto deve ter siso criada, entre nela com cd nomeProjeto
+```
+Para ativar o ambiente virtual
+```
+source bin/activate
+```
+Caso queira desativar, digite de qualquer lugar:
+```
+deactivate
+```
+ 
