@@ -48,8 +48,7 @@ def getAvailableLetters():
     import string
     # 'abcdefghijklmnopqrstuvwxyz'
     available = string.ascii_lowercase
-
-
+    
     return available
 
 def printWelcome(secretWord):
@@ -67,12 +66,20 @@ def hangman(secretWord):
         print('You have ', guesses, 'guesses left.')
 
         available = getAvailableLetters()
+        auxAvailable = getAvailableLetters()
+
         for letter in available:
             if letter in lettersGuessed:
                 available = available.replace(letter, '')
 
         print('Available letters', available)
         letter = raw_input('Please guess a letter: ')
+        while letter.__len__() > 1 or letter not in auxAvailable:
+                print '\nHeeeeey, attention!\n'
+                print 'You only need ONE letter at this moment!'
+                print 'Available letters', available
+                letter = raw_input('Please guess a letter: ')
+
         if letter in lettersGuessed:
 
             guessed = getGuessedWord()
